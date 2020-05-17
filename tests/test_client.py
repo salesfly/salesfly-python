@@ -21,7 +21,23 @@ class ClientTest(unittest.TestCase):
             print("Allowed requests: {0}".format(usage["allowed"]))
             print("Used requests: {0}".format(usage["used"]))
         except ValueError:
-            pass
+            assert False
+        except ResponseError as e:
+            self.assertIsNotNone(e)
+
+    def test_create_pdf(self):
+        try:
+            options = {
+                "document_url": "https://example.com"
+            }
+            buffer = self.client.pdf.create(options)
+            self.assertIsNotNone(buffer)
+            f = open("/tmp/test-python.pdf", "w")
+            f.write(buffer)
+            f.close()
+        except ValueError as e:
+            print(e)
+            assert False
         except ResponseError as e:
             self.assertIsNotNone(e)
 

@@ -78,7 +78,8 @@ class RestClient:
             elif method in ["POST", "PUT", "PATCH"]:
                 if isinstance(data, dict):
                     data = json.dumps(data)
-            resp = requests.request(method, url, headers=allHeaders, params=params, data=data, timeout=self.timeout)
+            resp = requests.request(
+                method, url, headers=allHeaders, params=params, data=data, timeout=self.timeout)
         except requests.exceptions.Timeout as e:
             raise APITimeoutError("Request timed out: " + repr(e))
         except requests.exceptions.RequestException as e:
@@ -104,5 +105,7 @@ class RestClient:
             raise ResponseError(resp.status_code, msg=message, code=code)
 
         # Parse JSON, return data only
+        if resp.headers["Content-Type"] == "application/pdf":
+            return resp.content
         result = json.loads(resp.content)
         return result["data"]

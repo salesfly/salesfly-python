@@ -3,6 +3,7 @@ test:
 	pytest -v
 
 deploy:
+	# Credentials in ~/.pypirc
 	rm -f ./dist/*
 	python3 setup.py sdist bdist_wheel
 	twine upload dist/*
