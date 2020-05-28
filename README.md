@@ -6,11 +6,11 @@
 
 [![Python](https://img.shields.io/pypi/pyversions/setuptools.svg)]()
 
-Python client for [Salesfly API](https://salesfly.com)&reg;
+Python client for [Salesfly API](https://salesfly.com)&reg;. This client works with [Salesfly e-commerce](https://salesfly.com) and [SalesflyPDF](https://salesflypdf.com).
 
 ## Documentation
 
-See the [Python API docs](https://docs.salesfly.com/python/).
+See the [Python API docs](https://developers.salesfly.com/python/).
 
 ## Installation
 

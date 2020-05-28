@@ -27,4 +27,4 @@ Using the Salesfly API
 
 Documentation for the Python client can be found alongside the other API clients here:
 
-- https://docs.salesfly.com/python/
+- https://developers.salesfly.com/python/
